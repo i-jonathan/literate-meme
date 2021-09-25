@@ -36,7 +36,7 @@ function handleOperation(value) {
         case "=":
             if (currentOperation == null) {
                 return
-            } 
+            }
             doMath(parseInt(currentValue))
             currentValue = total
             total = 0
@@ -46,10 +46,11 @@ function handleOperation(value) {
         case "−":
         case "÷":
         case "×":
-            if (currentOperation != value) {
+            if (currentOperation !== value) {
                 currentOperation = value
             }
             handleMath(value)
+            break;
         default:
             break;
     }
@@ -62,7 +63,7 @@ function handleMath(value) {
 
     let currentInt = parseInt(currentValue)
     if (total === 0) {
-        total = currentValue
+        total = currentInt
     } else {
         doMath(currentInt)
     }
@@ -92,14 +93,13 @@ function doMath(intValue) {
 
 function reRender() {
     let screen = document.querySelector(".input-display")
-
     screen.innerText = currentValue
 }
 
 function init() {
-    document.querySelector(".all-buttons").addEventListener("click", function(event) 
+    document.querySelector(".all-buttons").addEventListener("click", function(event)
     {
-        handleButtons(event.target.innerText)    
+        handleButtons(event.target.innerText)
     })
 }
 
