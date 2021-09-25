@@ -21,6 +21,12 @@ function handleNumber(value) {
 
 function handleOperation(value) {
     switch (value) {
+        case ".":
+            if (currentValue.includes(".")) {
+                return
+            }
+            currentValue += "."
+            break;
         case "C":
             currentValue = "0"
             total = 0
@@ -38,7 +44,7 @@ function handleOperation(value) {
                 return
             }
             doMath(parseFloat(currentValue))
-            currentValue = total
+            currentValue = total.toFixed(2)
             total = 0
             currentOperation = null
             break;
