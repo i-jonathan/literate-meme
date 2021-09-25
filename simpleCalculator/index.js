@@ -36,7 +36,7 @@ function handleOperation(value) {
         case "=":
             if (currentOperation == null) {
                 return
-            }
+            } 
             doMath(parseInt(currentValue))
             currentValue = total
             total = 0
@@ -46,6 +46,9 @@ function handleOperation(value) {
         case "−":
         case "÷":
         case "×":
+            if (currentOperation != value) {
+                currentOperation = value
+            }
             handleMath(value)
         default:
             break;
