@@ -37,7 +37,7 @@ function handleOperation(value) {
             if (currentOperation == null) {
                 return
             }
-            doMath(parseInt(currentValue))
+            doMath(parseFloat(currentValue))
             currentValue = total
             total = 0
             currentOperation = null
@@ -61,7 +61,7 @@ function handleMath(value) {
         return
     }
 
-    let currentInt = parseInt(currentValue)
+    let currentInt = parseFloat(currentValue)
     if (total === 0) {
         total = currentInt
     } else {
